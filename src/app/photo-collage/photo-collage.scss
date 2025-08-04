@@ -1,0 +1,270 @@
+.photo-collage {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+}
+
+.collage-header {
+  text-align: center;
+  margin-bottom: 30px;
+  
+  h2 {
+    color: #FFB6C1;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 15px #FFB6C1;
+    letter-spacing: 0.05em;
+  }
+  
+  p {
+    color: #E6E6FA;
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+  }
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  grid-auto-rows: minmax(200px, auto);
+}
+
+.photo-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    
+    .photo-overlay {
+      opacity: 1;
+    }
+  }
+  
+  // Creative grid positioning for collage effect
+  &.photo-1 {
+    grid-row: span 2;
+  }
+  
+  &.photo-2 {
+    grid-column: span 2;
+  }
+  
+  &.photo-3 {
+    grid-row: span 2;
+  }
+  
+  &.photo-5 {
+    grid-column: span 2;
+  }
+}
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 20px rgba(255, 182, 193, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #FFB6C1, #E6E6FA, #DDA0DD);
+  background-clip: padding-box;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #FFB6C1, #E6E6FA, #DDA0DD, #FFB6C1);
+    border-radius: 15px;
+    z-index: -1;
+    animation: borderGlow 3s ease-in-out infinite alternate;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 182, 193, 0.8) 0%,
+    rgba(230, 230, 250, 0.6) 50%,
+    rgba(221, 160, 221, 0.8) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.photo-caption {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 15px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.photo-icon {
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+// Photo Modal
+.photo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #000;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 50px rgba(255, 182, 193, 0.5),
+    0 20px 60px rgba(0, 0, 0, 0.8);
+  border: 2px solid #FFB6C1;
+  
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 182, 193, 0.9);
+  color: #000;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #FFB6C1;
+    transform: scale(1.1);
+  }
+}
+
+.modal-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: #FFB6C1;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+// Animations
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(255, 182, 193, 0.6);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .collage-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .photo-item {
+    // Reset spans on mobile for better layout
+    &.photo-1,
+    &.photo-3 {
+      grid-row: span 1;
+    }
+    
+    &.photo-2,
+    &.photo-5 {
+      grid-column: span 1;
+    }
+  }
+  
+  .collage-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .photo-caption {
+    font-size: 0.9rem;
+  }
+}

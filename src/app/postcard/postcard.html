@@ -1,0 +1,68 @@
+<div class="postcard-container">
+  <div class="postcard-wrapper">
+    <div class="postcard" [class.flipped]="isFlipped" (click)="flipCard()">
+      
+      <!-- Front Side -->
+      <div class="postcard-front">
+        <div class="card-image-container">
+          <img src="birthday card.jpeg" alt="Birthday Card" class="card-image">
+          <div class="image-overlay">
+            <div class="flip-hint">
+              <span class="flip-icon">🔄</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back Side -->
+      <div class="postcard-back">
+        <div class="postcard-header-back">
+          <h3>🎂 Birthday Wishes 🎂</h3>
+        </div>
+        
+        <div class="postcard-content">
+          <div class="message-area">
+            <p class="birthday-message">
+              Dear Friend,
+            </p>
+            <p class="birthday-message">
+              On this special day, I want you to know how much joy you bring into the world. 
+              Your kindness, laughter, and beautiful spirit make every day brighter.
+            </p>
+            <p class="birthday-message">
+              May this new year of your life be filled with endless possibilities, 
+              wonderful adventures, and all the happiness your heart can hold.
+            </p>
+            <p class="birthday-signature">
+              With love and best wishes,<br>
+              Happy Birthday! 🎉✨
+            </p>
+          </div>
+          
+          <div class="postcard-details">
+            <div class="postmark">
+              <div class="postmark-circle">
+                <div class="postmark-date">{{ getCurrentDate() }}</div>
+                <div class="postmark-text">BIRTHDAY</div>
+              </div>
+            </div>
+            
+            <div class="address-section">
+              <div class="to-address">
+                <div class="address-label">To:</div>
+                <div class="address-line">The Birthday Star ⭐</div>
+                <div class="address-line">Celebration Lane</div>
+                <div class="address-line">Joy City, Happy 12345</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-back-hint">
+          <span class="flip-icon">🔄</span>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

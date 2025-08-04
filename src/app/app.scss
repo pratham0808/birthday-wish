@@ -1,0 +1,322 @@
+// Typewriter font import
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:host {
+  --pastel-pink: #FFB6C1;
+  --pastel-lavender: #E6E6FA;
+  --pastel-peach: #FFCCCB;
+  --pastel-mint: #F0FFF0;
+  --pastel-yellow: #FFFFE0;
+  --deep-black: #000;
+  --dark-gray: #1a1a1a;
+  --soft-white: #ffffff;
+  --pastel-purple: #DDA0DD;
+  
+  display: block;
+  min-height: 100vh;
+  background: #000;
+  font-family: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+}
+
+.birthday-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.birthday-header {
+  text-align: center;
+  z-index: 2;
+}
+
+
+.birthday-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin: 0;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.birthday-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+
+// Removed birthday-message text styles
+
+// Balloon styles removed
+
+
+// Animations
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+
+// Removed celebrate button
+
+// Very Subtle Buzzing Effects
+.buzzing {
+  animation: buzz-subtle 1s infinite alternate;
+}
+
+.buzzing:hover {
+  animation: buzz-gentle 0.5s infinite alternate;
+}
+
+
+// Much More Subtle Buzzing
+@keyframes buzz-subtle {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0.2px);
+  }
+}
+
+@keyframes buzz-gentle {
+  0% {
+    transform: translateX(-0.3px) translateY(-0.1px);
+  }
+  25% {
+    transform: translateX(0.3px) translateY(0.1px);
+  }
+  50% {
+    transform: translateX(-0.2px) translateY(-0.2px);
+  }
+  75% {
+    transform: translateX(0.2px) translateY(0.2px);
+  }
+  100% {
+    transform: translateX(-0.3px) translateY(-0.1px);
+  }
+}
+
+// Typewriter styling for title
+.birthday-title {
+  font-family: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--soft-white);
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px var(--pastel-pink);
+}
+
+.birthday-title:hover {
+  color: var(--pastel-pink);
+  transform: translateY(-2px);
+  text-shadow: 0 0 20px var(--pastel-lavender);
+}
+
+// Removed birthday-subtitle
+
+// Removed birthday-message styles
+
+// Simple Birthday Message Card
+.birthday-card-section {
+  margin-top: 0;
+  text-align: center;
+  max-width: 600px;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.birthday-message-card {
+  width: 400px;
+  min-height: 300px;
+  background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-pink));
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 182, 193, 0.4);
+  border: 1px solid var(--pastel-pink);
+}
+
+.message-content {
+  text-align: center;
+  padding: 2rem;
+  color: var(--soft-white);
+}
+
+.message-content h4 {
+  font-family: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  text-shadow: 0 0 10px var(--pastel-purple);
+}
+
+.decorative-elements {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.decorative-elements span {
+  margin: 0 0.5rem;
+  display: inline-block;
+  animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+.decorative-elements span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.decorative-elements span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.card-front-content p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+}
+
+.inside-content {
+  padding: 1.5rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.birthday-message-text {
+  font-family: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--pastel-mint);
+  margin: 0;
+  font-weight: 400;
+}
+
+.birthday-signature {
+  font-family: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+  font-size: 1.2rem;
+  color: var(--pastel-pink);
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 0 10px var(--pastel-peach);
+}
+
+.inside-decorations {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.inside-decorations span {
+  margin: 0 0.3rem;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite alternate;
+}
+
+.inside-decorations span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.inside-decorations span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes sparkle {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(-5deg); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-5px); }
+}
+
+// Postcard section styling
+.postcard-section {
+  width: 100%;
+  position: relative;
+  z-index: 80;
+}
+
+// Photo collage section styling
+.collage-section {
+  width: 100%;
+  margin: 40px 0;
+  position: relative;
+  z-index: 75;
+}
+
+// Flower code removed - ready for your implementation
+
+// Responsive design
+@media (max-width: 768px) {
+  .birthday-title {
+    font-size: 2.5rem;
+  }
+  
+  .birthday-card-section {
+    margin-top: 0;
+  }
+  
+  .birthday-card {
+    width: 350px;
+    height: 240px;
+  }
+  
+  .card-front-content h4 {
+    font-size: 1.5rem;
+  }
+  
+  .birthday-message-text {
+    font-size: 0.9rem;
+  }
+  
+  .birthday-signature {
+    font-size: 1rem;
+  }
+  
+  // Responsive styles ready for your flower implementation
+}

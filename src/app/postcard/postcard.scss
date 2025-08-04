@@ -1,0 +1,321 @@
+.postcard-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+}
+
+.postcard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  
+  h2 {
+    color: #FFB6C1;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 15px #FFB6C1;
+    letter-spacing: 0.05em;
+  }
+  
+  p {
+    color: #E6E6FA;
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+  }
+}
+
+.postcard-wrapper {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.postcard {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  
+  &.flipped {
+    transform: rotateY(180deg);
+  }
+}
+
+.postcard-front,
+.postcard-back {
+  position: absolute;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 
+    0 0 30px rgba(255, 182, 193, 0.4),
+    0 15px 50px rgba(0, 0, 0, 0.5);
+  border: 3px solid #FFB6C1;
+  overflow: hidden;
+}
+
+// Front Side Styling
+.postcard-front {
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  
+  .card-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 182, 193, 0.1) 0%,
+        rgba(230, 230, 250, 0.05) 50%,
+        rgba(221, 160, 221, 0.1) 100%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(1px);
+    }
+    
+    .flip-hint {
+      text-align: center;
+      color: white;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      
+      .flip-icon {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 10px;
+        animation: rotate 2s ease-in-out infinite;
+      }
+      
+      .flip-text {
+        font-size: 1.1rem;
+      }
+    }
+    
+    &:hover .image-overlay {
+      opacity: 1;
+    }
+    
+    &:hover .card-image {
+      transform: scale(1.02);
+    }
+  }
+}
+
+// Back Side Styling
+.postcard-back {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #333;
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.postcard-header-back {
+  text-align: center;
+  margin-bottom: 20px;
+  
+  h3 {
+    color: #FFB6C1;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.postcard-content {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+}
+
+.message-area {
+  flex: 2;
+  
+  .birthday-message {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+    
+    &:first-child {
+      font-weight: 600;
+      color: #FFB6C1;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .birthday-signature {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #e74c3c;
+    font-size: 0.95rem;
+    text-align: right;
+  }
+}
+
+.postcard-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.postmark {
+  display: flex;
+  justify-content: center;
+  
+  .postmark-circle {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #e74c3c;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(231, 76, 60, 0.1);
+    
+    .postmark-date {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #e74c3c;
+    }
+    
+    .postmark-text {
+      font-size: 0.6rem;
+      color: #e74c3c;
+      font-weight: 700;
+    }
+  }
+}
+
+.address-section {
+  .to-address {
+    .address-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+    
+    .address-line {
+      font-size: 0.85rem;
+      color: #34495e;
+      margin: 2px 0;
+      border-bottom: 1px dotted #bdc3c7;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+.flip-back-hint {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: #7f8c8d;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  .flip-icon {
+    font-size: 1rem;
+    animation: rotate 2s ease-in-out infinite reverse;
+  }
+}
+
+// Animations
+@keyframes rotate {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .postcard {
+    width: 90vw;
+    max-width: 500px;
+    height: 320px;
+  }
+  
+  .postcard-back {
+    padding: 15px;
+  }
+  
+  .postcard-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .postcard-details {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .postmark .postmark-circle {
+    width: 60px;
+    height: 60px;
+    
+    .postmark-date {
+      font-size: 0.6rem;
+    }
+    
+    .postmark-text {
+      font-size: 0.5rem;
+    }
+  }
+  
+  .birthday-message {
+    font-size: 0.8rem !important;
+  }
+  
+  .postcard-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .postcard {
+    height: 280px;
+  }
+  
+  .birthday-message {
+    font-size: 0.75rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .birthday-signature {
+    font-size: 0.8rem !important;
+    margin-top: 15px !important;
+  }
+}

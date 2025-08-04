@@ -1,0 +1,42 @@
+<div class="countdown-container" data-aos="fade-up" data-aos-delay="300">
+  <div class="countdown-header">
+    <h2>🎂 Birthday Countdown 🎂</h2>
+    <p *ngIf="!isBirthdayToday" class="countdown-subtitle">Time until the big day!</p>
+    <p *ngIf="isBirthdayToday" class="birthday-message">🎉 It's Birthday Time! 🎉</p>
+  </div>
+  
+  <div class="countdown-display" *ngIf="!isBirthdayToday">
+    <div class="time-unit">
+      <div class="time-number">{{ days.toString().padStart(2, '0') }}</div>
+      <div class="time-label">Days</div>
+    </div>
+    
+    <div class="time-separator">:</div>
+    
+    <div class="time-unit">
+      <div class="time-number">{{ hours.toString().padStart(2, '0') }}</div>
+      <div class="time-label">Hours</div>
+    </div>
+    
+    <div class="time-separator">:</div>
+    
+    <div class="time-unit">
+      <div class="time-number">{{ minutes.toString().padStart(2, '0') }}</div>
+      <div class="time-label">Minutes</div>
+    </div>
+    
+    <div class="time-separator">:</div>
+    
+    <div class="time-unit">
+      <div class="time-number">{{ seconds.toString().padStart(2, '0') }}</div>
+      <div class="time-label">Seconds</div>
+    </div>
+  </div>
+  
+  <div class="birthday-celebration" *ngIf="isBirthdayToday">
+    <div class="celebration-text">
+      <h3>🎈 Happy Birthday! 🎈</h3>
+      <p>The special day is finally here!</p>
+    </div>
+  </div>
+</div>

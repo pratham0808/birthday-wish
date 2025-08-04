@@ -1,0 +1,40 @@
+<div class="photo-collage">
+  <div class="collage-header">
+    <h2>📸 Memory Lane 📸</h2>
+    <p>Click any photo to view it larger</p>
+  </div>
+
+  <div class="collage-grid">
+    <div 
+      *ngFor="let photo of photos; trackBy: trackByPhotoId"
+      class="photo-item"
+      [class]="'photo-' + photo.id"
+      (click)="openPhoto(photo)"
+    >
+      <div class="photo-frame">
+        <img 
+          [src]="photo.src" 
+          [alt]="photo.alt"
+          loading="lazy"
+        >
+        <div class="photo-overlay">
+          <div class="photo-caption">{{ photo.caption }}</div>
+          <div class="photo-icon">🔍</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo Modal -->
+  <div 
+    *ngIf="selectedPhoto" 
+    class="photo-modal"
+    (click)="closePhoto()"
+  >
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closePhoto()">×</button>
+      <img [src]="selectedPhoto.src" [alt]="selectedPhoto.alt">
+      <div class="modal-caption">{{ selectedPhoto.caption }}</div>
+    </div>
+  </div>
+</div>
