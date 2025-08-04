@@ -33,6 +33,17 @@
 .birthday-header {
   text-align: center;
   z-index: 2;
+  margin-bottom: 2rem;
+  
+  .birthday-subtitle {
+    color: var(--pastel-lavender);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 15px 0 0 0;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease-out 0.8s forwards;
+    letter-spacing: 0.02em;
+  }
 }
 
 
@@ -137,7 +148,7 @@
   font-family: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
   font-size: 3.5rem;
   font-weight: 700;
-  color: var(--soft-white);
+  color: var(--pastel-purple);
   margin: 0 0 1.5rem 0;
   letter-spacing: 0.05em;
   cursor: pointer;

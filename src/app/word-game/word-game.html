@@ -1,0 +1,53 @@
+<div class="word-game-container" data-aos="fade-up" data-aos-delay="400">
+  <div class="game-header">
+    <h2> Birthday Word Challenge 🎮</h2>
+    <p>Guess words related to you!</p>
+    <div class="score">Score: {{ score }}</div>
+  </div>
+  
+  <div class="game-content">
+    <!-- Category and Clue -->
+    <div class="clue-section">
+      <div class="category">{{ currentWord.category }}</div>
+      <div class="clue">{{ currentWord.clue }}</div>
+    </div>
+    
+    <!-- Word Display -->
+    <div class="word-display">
+      {{ getDisplayWord() }}
+    </div>
+    
+    <!-- Wrong Guesses -->
+    <div class="wrong-guesses" *ngIf="wrongGuesses.length > 0">
+      <span class="label">Wrong letters:</span>
+      <span class="letters">{{ wrongGuesses.join(', ') }}</span>
+      <span class="remaining">({{ maxWrongGuesses - wrongGuesses.length }} left)</span>
+    </div>
+    
+    <!-- Input Section -->
+    <div class="input-section" *ngIf="!gameWon && !gameLost">
+      <input 
+        type="text" 
+        [(ngModel)]="userInput" 
+        (keypress)="onKeyPress($event)"
+        maxlength="1"
+        placeholder="Enter a letter..."
+        class="letter-input">
+      <button (click)="makeGuess()" class="guess-btn">Guess!</button>
+    </div>
+    
+    <!-- Game Won -->
+    <div class="game-result won" *ngIf="gameWon">
+      <h3>🎉 Congratulations! 🎉</h3>
+      <p>You guessed "{{ currentWord.word }}" correctly!</p>
+      <button (click)="nextWord()" class="next-btn">Next Word 🌟</button>
+    </div>
+    
+    <!-- Game Lost -->
+    <div class="game-result lost" *ngIf="gameLost">
+      <h3>💔 Oh no! 💔</h3>
+      <p>The word was "{{ currentWord.word }}"</p>
+      <button (click)="nextWord()" class="next-btn">Try Another 🔄</button>
+    </div>
+  </div>
+</div>

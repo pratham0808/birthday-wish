@@ -7,10 +7,11 @@ import { Flower } from './flower/flower';
 import { PhotoCollageComponent } from './photo-collage/photo-collage';
 import { PostcardComponent } from './postcard/postcard';
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer';
+import { WordGame } from './word-game/word-game';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Flower, PhotoCollageComponent, PostcardComponent, CountdownTimerComponent],
+  imports: [RouterOutlet, Flower, PhotoCollageComponent, PostcardComponent, CountdownTimerComponent, WordGame],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

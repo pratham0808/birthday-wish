@@ -16,10 +16,7 @@ export class PostcardComponent {
   }
 
   getCurrentDate(): string {
-    const today = new Date();
-    const month = today.toLocaleString('default', { month: 'short' }).toUpperCase();
-    const day = today.getDate();
-    const year = today.getFullYear();
-    return `${month} ${day} ${year}`;
+    // Return Riyan's birthday date instead of current date
+    return `AUG 6 2025`;
   }
 }

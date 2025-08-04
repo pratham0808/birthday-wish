@@ -19,39 +19,39 @@ export class PhotoCollageComponent {
   photos: Photo[] = [
     {
       id: 1,
-      src: 'https://via.placeholder.com/300x400/FF6B6B/FFFFFF?text=Memory+1',
-      alt: 'Birthday Memory 1',
-      caption: 'Sweet moments together'
+      src: '/1.jpeg',
+      alt: 'Riyan Memory 1',
+      caption: 'Sweet memories we cherish 💖'
     },
     {
       id: 2,
-      src: 'https://via.placeholder.com/400x300/4ECDC4/FFFFFF?text=Memory+2',
-      alt: 'Birthday Memory 2',
-      caption: 'Adventures we shared'
+      src: '/2.jpeg',
+      alt: 'Riyan Memory 2',
+      caption: 'Beautiful moments together ✨'
     },
     {
       id: 3,
-      src: 'https://via.placeholder.com/350x350/45B7D1/FFFFFF?text=Memory+3',
-      alt: 'Birthday Memory 3',
-      caption: 'Laughter and joy'
+      src: '/3.jpeg',
+      alt: 'Riyan Memory 3',
+      caption: 'Laughter and joy shared 😄'
     },
     {
       id: 4,
-      src: 'https://via.placeholder.com/300x300/96CEB4/FFFFFF?text=Memory+4',
-      alt: 'Birthday Memory 4',
-      caption: 'Special celebrations'
+      src: '/4.jpeg',
+      alt: 'Riyan Memory 4',
+      caption: 'Adventures and fun times 🌟'
     },
     {
       id: 5,
-      src: 'https://via.placeholder.com/400x350/FFEAA7/333333?text=Memory+5',
-      alt: 'Birthday Memory 5',
-      caption: 'Beautiful memories'
+      src: '/5.jpeg',
+      alt: 'Riyan Memory 5',
+      caption: 'Special celebrations 🎉'
     },
     {
       id: 6,
-      src: 'https://via.placeholder.com/320x400/DDA0DD/FFFFFF?text=Memory+6',
-      alt: 'Birthday Memory 6',
-      caption: 'Cherished times'
+      src: '/6.jpeg',
+      alt: 'Riyan Memory 6',
+      caption: 'Treasured moments forever 🌸'
     }
   ];
 
